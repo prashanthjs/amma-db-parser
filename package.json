@@ -1,0 +1,41 @@
+{
+  "name": "amma-db-parser",
+  "version": "0.0.1",
+  "description": "amma db parser",
+  "main": "index.js",
+  "author": "Prashanth Pratapagiri <prashanth.p@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "hapi",
+    "node",
+    "amma",
+    "amma-db-parser"
+  ],
+  "typescript": {
+    "definition": "amma-db-parser.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prashanthjs/amma-db-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/prashanthjs/amma-db-parser/issues"
+  },
+  "scripts": {
+    "test": "lab -t 100 -v -C"
+  },
+  "dependencies": {
+    "amma-plugin-loader": "git://git@github.com:prashanthjs/amma-plugin-loader.git",
+    "hapi": "^8.8.0",
+    "object-path": "^0.9.2"
+  },
+  "devDependencies": {
+    "code": "^1.4.1",
+    "gulp": "^3.8.11",
+    "gulp-lab": "^1.0.5",
+    "gulp-nodemon": "^2.0.3",
+    "lab": "^5.8.0",
+    "sinon": "^1.15.4",
+    "tsd": "^0.6.3"
+  }
+}
