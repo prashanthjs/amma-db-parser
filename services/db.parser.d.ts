@@ -1,3 +1,4 @@
+import Mongoose = require('mongoose');
 export interface IFilter {
     field: string;
     operator?: string;
@@ -35,21 +36,21 @@ export interface IDbParser {
     parseAndReturnValue(field: string, value: any, operator?: string): any;
 }
 export declare class DbParser implements IDbParser {
-    schema: Object;
+    schema: Mongoose.Schema;
     page: number;
     pageSize: number;
     sort: any;
     filter: any;
     skip: number;
-    constructor(schema?: Object);
+    constructor(schema?: Mongoose.Schema);
     parse(options: IOptions): void;
     parseAndReturnFilters(filters: IFilters[] | IFilters, logic?: string): Object;
     parseAndReturnFilter(filter: IFilter): Object;
     parseAndReturnSort(sorts: ISort[] | ISort): Object;
-    getParsedObject(field: string): any;
+    getParsedObject(key: string): any;
     getType(field: string): string;
     parseAndReturnValue(field: string, value: any, operator?: string): any;
 }
 export default class FactoryClass {
-    getDbParser(schema?: Object): DbParser;
+    getDbParser(schema?: Mongoose.Schema): DbParser;
 }

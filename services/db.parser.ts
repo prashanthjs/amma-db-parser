@@ -1,4 +1,5 @@
 import ObjectPath = require('object-path');
+import Mongoose = require('mongoose');
 
 export interface IFilter {
   field: string,
@@ -50,7 +51,7 @@ export class DbParser  implements IDbParser{
   public filter: any;
   public skip: number;
 
-  constructor(public schema?: Object) {
+  constructor(public schema?: Mongoose.Schema) {
   }
 
   public parse(options: IOptions): void {
@@ -146,9 +147,10 @@ export class DbParser  implements IDbParser{
     return ret;
   }
 
-  public getParsedObject(field: string): any {
-    if (ObjectPath.has(this.schema, field)) {
-      return ObjectPath.get(this.schema, field);
+  public getParsedObject(key: string): any {
+    let  field = this.schema.path(key);
+    if(field && field.options){
+      return field.options;
     }
     return false;
   }
@@ -223,7 +225,7 @@ export class DbParser  implements IDbParser{
 
 export default class FactoryClass {
 
-  getDbParser(schema?: Object): DbParser {
+  getDbParser(schema?: Mongoose.Schema): DbParser {
     let dbParser = new DbParser(schema);
     return dbParser;
   }

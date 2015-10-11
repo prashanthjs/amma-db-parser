@@ -1,4 +1,3 @@
-var ObjectPath = require('object-path');
 var DbParser = (function () {
     function DbParser(schema) {
         this.schema = schema;
@@ -96,9 +95,10 @@ var DbParser = (function () {
         }
         return ret;
     };
-    DbParser.prototype.getParsedObject = function (field) {
-        if (ObjectPath.has(this.schema, field)) {
-            return ObjectPath.get(this.schema, field);
+    DbParser.prototype.getParsedObject = function (key) {
+        var field = this.schema.path(key);
+        if (field && field.options) {
+            return field.options;
         }
         return false;
     };

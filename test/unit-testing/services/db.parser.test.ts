@@ -2,6 +2,7 @@ import Hapi = require('hapi');
 import Code = require('code');
 import Lab = require('lab');
 import Sinon = require('sinon');
+import Mongoose = require('mongoose');
 
 let DbParserFactory = require('../../../services/db.parser').default;
 let lab = exports.lab = Lab.script(),
@@ -17,7 +18,7 @@ let lab = exports.lab = Lab.script(),
 suite('Test DB Parse', () => {
   let dbParserFactory = new DbParserFactory();
   let dbParser;
-  let schema = {
+  let schema = new Mongoose.Schema({
     _id: {
       type: String,
       require: true
@@ -42,7 +43,7 @@ suite('Test DB Parse', () => {
       type: Buffer,
       require: true
     }
-  };
+  });
   beforeEach((next) => {
     dbParser = dbParserFactory.getDbParser(schema);
     return next();

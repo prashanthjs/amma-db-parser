@@ -28,6 +28,7 @@
         "typings/gulp/gulp.d.ts",
         "typings/hapi/hapi.d.ts",
         "typings/missing.d.ts",
+        "typings/mongoose/mongoose.d.ts",
         "typings/node/node.d.ts",
         "typings/object-path/object-path.d.ts",
         "typings/orchestrator/orchestrator.d.ts",

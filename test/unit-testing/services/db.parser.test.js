@@ -1,11 +1,12 @@
 var Code = require('code');
 var Lab = require('lab');
+var Mongoose = require('mongoose');
 var DbParserFactory = require('../../../services/db.parser').default;
 var lab = exports.lab = Lab.script(), before = lab.before, beforeEach = lab.beforeEach, afterEach = lab.afterEach, after = lab.after, expect = Code.expect, suite = lab.suite, test = lab.test;
 suite('Test DB Parse', function () {
     var dbParserFactory = new DbParserFactory();
     var dbParser;
-    var schema = {
+    var schema = new Mongoose.Schema({
         _id: {
             type: String,
             require: true
@@ -30,7 +31,7 @@ suite('Test DB Parse', function () {
             type: Buffer,
             require: true
         }
-    };
+    });
     beforeEach(function (next) {
         dbParser = dbParserFactory.getDbParser(schema);
         return next();
