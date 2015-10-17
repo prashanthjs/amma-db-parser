@@ -3,7 +3,7 @@
         "target": "es5",
         "module": "commonjs",
         "sourceMap": false,
-        "declaration": true,
+        "declaration": false,
         "noImplicitAny": false,
         "removeComments": false,
         "noLib": false
@@ -17,11 +17,8 @@
     ],
     "files": [
         "amma-db-parser.d.ts",
-        "index.d.ts",
         "index.ts",
-        "services/db.parser.d.ts",
         "services/db.parser.ts",
-        "test/unit-testing/services/db.parser.test.d.ts",
         "test/unit-testing/services/db.parser.test.ts",
         "typings/bluebird/bluebird.d.ts",
         "typings/gulp-nodemon/gulp-nodemon.d.ts",
@@ -35,5 +32,6 @@
         "typings/q/Q.d.ts",
         "typings/sinon/sinon.d.ts",
         "typings/tsd.d.ts"
-    ]
+    ],
+    "exclude": []
 }
